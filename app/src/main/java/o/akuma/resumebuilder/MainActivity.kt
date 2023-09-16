@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         binding.tvGitHubHandle.text = gitHub?: getString(R.string.github_username)
         binding.tvPersonalNotes.text = personal?: getString(R.string.personal_bio_note)
         binding.tvSkill1.text = skill1?: getString(R.string.xml)
-        binding.tvSkill2.text = skill2?: getString(R.string.navigation)
+        binding.tvSkill2.text = skill2?: getString(R.string.version_control)
         binding.tvSkill3.text = skill3?: getString(R.string.android)
         binding.tvCertification.text = certificate?: getString(R.string.gads_2023)
         binding.tvSchool.text = education?: getString(R.string.covenant_university)

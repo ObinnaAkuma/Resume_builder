@@ -1,7 +1,6 @@
 package o.akuma.resumebuilder
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.edit
@@ -49,8 +48,9 @@ class EditCvActivity : AppCompatActivity() {
                 putString(PreferenceKey.school,school)
              }
 
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            //val intent = Intent(this,MainActivity::class.java)
+            //startActivity(intent)
+            finish()
         }
     }
 }
