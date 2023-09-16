@@ -8,3 +8,7 @@ Here you see the main screen with a floating action button indicating the edit a
 
 ![2023-09-16 17-23-15 High Res Screenshot](https://github.com/ObinnaAkuma/Resume_builder/assets/25484571/6b508fa0-802d-45a3-92db-5b530ae1611a)
 
+
+Here below, we have a visual representation of the edit screen where as a user you can take advantage of and share your unique skills.
+
+![2023-09-16 17-23-15 High Res Screenshot](https://github.com/ObinnaAkuma/Resume_builder/assets/25484571/2f50478e-74a7-4a6b-a6af-8f2509a42a16)
