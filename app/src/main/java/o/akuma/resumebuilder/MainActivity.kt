@@ -39,15 +39,15 @@ class MainActivity : AppCompatActivity() {
         val education = sharedPreferences.getString(PreferenceKey.school,null)
 
 
-        binding.tvName.text = name?: R.string.name.toString()
-        binding.tvSlackName.text = slackName?: R.string.obinna_a.toString()
-        binding.tvGitHubHandle.text = gitHub?: R.string.github_username.toString()
-        binding.tvPersonalNotes.text = personal?: R.string.personal_bio_note.toString()
-        binding.tvSkill1.text = skill1?: R.string.skills.toString()
-        binding.tvSkill2.text = skill2?: R.string.skills.toString()
-        binding.tvSkill3.text = skill3?: R.string.skills.toString()
-        binding.tvCertification.text = certificate?: R.string.gads_2023.toString()
-        binding.tvSchool.text = education?: R.string.covenant_university.toString()
+        binding.tvName.text = name?: getString(R.string.name)
+        binding.tvSlackName.text = slackName?: getString(R.string.obinna_a)
+        binding.tvGitHubHandle.text = gitHub?: getString(R.string.github_username)
+        binding.tvPersonalNotes.text = personal?: getString(R.string.personal_bio_note)
+        binding.tvSkill1.text = skill1?: getString(R.string.xml)
+        binding.tvSkill2.text = skill2?: getString(R.string.navigation)
+        binding.tvSkill3.text = skill3?: getString(R.string.android)
+        binding.tvCertification.text = certificate?: getString(R.string.gads_2023)
+        binding.tvSchool.text = education?: getString(R.string.covenant_university)
 
 
 

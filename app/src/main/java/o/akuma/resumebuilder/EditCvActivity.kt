@@ -49,7 +49,6 @@ class EditCvActivity : AppCompatActivity() {
                 putString(PreferenceKey.school,school)
              }
 
-
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
