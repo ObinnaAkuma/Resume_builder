@@ -1,21 +1,34 @@
 package o.akuma.resumebuilder
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.core.content.edit
 import o.akuma.resumebuilder.databinding.ActivityEditCvBinding
 
 class EditCvActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityEditCvBinding
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditCvBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+
         binding.btViewCV.setOnClickListener {
-            val name = binding.etName.text.toString()
+            var name = binding.etName.text.toString()
             val slackHandle = binding.etSlackName.text.toString()
             val gitHandle = binding.etGithub.text.toString()
             val personalNote = binding.etPersonalNotes.text.toString()
@@ -25,18 +38,22 @@ class EditCvActivity : AppCompatActivity() {
             val school = binding.etSchoolCert1.text.toString()
             val certificate = binding.etSchoolCert2.text.toString()
 
-            val intent = Intent(this,MainActivity::class.java)
-                intent.putExtra("EXTRA_NAME", name)
-                intent.putExtra("EXTRA_HANDLE", slackHandle)
-                intent.putExtra("EXTRA_HANDLE", gitHandle)
-                intent.putExtra("EXTRA_NOTE", personalNote)
-                intent.putExtra("EXTRA_SKILL", skill1)
-                intent.putExtra("EXTRA_SKILL", skill2)
-                intent.putExtra("EXTRA_SKILL", skill3)
-                intent.putExtra("EXTRA_SCHOOL", school)
-                intent.putExtra("EXTRA_CERTIFICATE", certificate)
-                startActivity(intent)
-        }
+            /* sharedPreferences.edit {
+                 putString(PreferenceKey.name,name)
+                 Log.i("TAG","$name")
+             }
 
+             */
+
+            with(sharedPreferences.edit()){
+                putString(PreferenceKey.name,name)
+                Log.i("TAG", name)
+                apply()
+            }
+
+
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

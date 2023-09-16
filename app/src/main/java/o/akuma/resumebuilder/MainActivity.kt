@@ -1,14 +1,18 @@
 package o.akuma.resumebuilder
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import o.akuma.resumebuilder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,8 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        //Declare preloaded strings
 
+        //Declare preloaded strings
+        /*
         binding.tvName.text = getString(R.string.obinna_akuma)
         binding.tvSlackName.text = getString(R.string.obinna_a)
         binding.tvGitHubHandle.text = getString(R.string.github_handle)
@@ -31,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         binding.tvSchool.text = getString(R.string.covenant_university)
         binding.tvCertification.text = getString(R.string.gads_2023)
 
+         */
+
 
 
 
@@ -40,17 +47,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*  binding.tvName.text = intent.getStringExtra("EXTRA_NAME")
-       binding.tvSlackName.text = intent.getStringExtra("EXTRA_HANDLE")
-       binding.tvGitHubHandle.text = intent.getStringExtra("EXTRA_HANDLE")
-       binding.tvPersonalNotes.text = intent.getStringExtra("EXTRA_NOTE")
-       binding.tvSkill1.text = intent.getStringExtra("EXTRA_SKILL")
-       binding.tvSkill2.text = intent.getStringExtra("EXTRA_SKILL")
-       binding.tvSkill3.text = intent.getStringExtra("EXTRA_SKILL")
-       binding.tvSchool.text = intent.getStringExtra("EXTRA_SCHOOL")
-       binding.tvCertification.text = intent.getStringExtra("EXTRA_CERTIFICATE")
+    }
 
-      */
-
+    override fun onResume() {
+        super.onResume()
+        val sharedPreferences = getPreferences( Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString(PreferenceKey.name,"")
+        binding.tvName.text = if (name?.isNotBlank() == true)
+            name else "Obinna Akuma"
+        Log.i("TAG", "$name")
     }
 }
