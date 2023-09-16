@@ -1,12 +1,10 @@
 package o.akuma.resumebuilder
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.preference.PreferenceManager
 import o.akuma.resumebuilder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,29 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-        //Declare preloaded strings
-        /*
-        binding.tvName.text = getString(R.string.obinna_akuma)
-        binding.tvSlackName.text = getString(R.string.obinna_a)
-        binding.tvGitHubHandle.text = getString(R.string.github_handle)
-        binding.tvBio.text = getString(R.string.personal_bio)
-        binding.tvPersonalNotes.text = getString(R.string.personal_bio_note)
-        binding.tvSkills.text = getString(R.string.skills)
-        binding.tvSkill1.text = getString(R.string.android)
-        binding.tvSkill2.text = getString(R.string.navigation)
-        binding.tvSkill3.text = getString(R.string.version_control)
-        binding.tvEducation.text = getString(R.string.education_certificate)
-        binding.tvSchool.text = getString(R.string.covenant_university)
-        binding.tvCertification.text = getString(R.string.gads_2023)
-
-         */
-
-
-
-
-
         binding.btnFab.setOnClickListener {
             intent = Intent(this, EditCvActivity::class.java)
             startActivity(intent)
@@ -51,10 +26,30 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val sharedPreferences = getPreferences( Context.MODE_PRIVATE)
-        val name = sharedPreferences.getString(PreferenceKey.name,"")
-        binding.tvName.text = if (name?.isNotBlank() == true)
-            name else "Obinna Akuma"
-        Log.i("TAG", "$name")
+
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val name = sharedPreferences.getString(PreferenceKey.name,null)
+        val slackName = sharedPreferences.getString(PreferenceKey.slackHandle,null)
+        val gitHub = sharedPreferences.getString(PreferenceKey.gitHub,null)
+        val personal = sharedPreferences.getString(PreferenceKey.personalBioNotes,null)
+        val skill1 = sharedPreferences.getString(PreferenceKey.skill1,null)
+        val skill2 = sharedPreferences.getString(PreferenceKey.skill2,null)
+        val skill3 = sharedPreferences.getString(PreferenceKey.skill3,null)
+        val certificate = sharedPreferences.getString(PreferenceKey.certification,null)
+        val education = sharedPreferences.getString(PreferenceKey.school,null)
+
+
+        binding.tvName.text = name?: R.string.name.toString()
+        binding.tvSlackName.text = slackName?: R.string.obinna_a.toString()
+        binding.tvGitHubHandle.text = gitHub?: R.string.github_username.toString()
+        binding.tvPersonalNotes.text = personal?: R.string.personal_bio_note.toString()
+        binding.tvSkill1.text = skill1?: R.string.skills.toString()
+        binding.tvSkill2.text = skill2?: R.string.skills.toString()
+        binding.tvSkill3.text = skill3?: R.string.skills.toString()
+        binding.tvCertification.text = certificate?: R.string.gads_2023.toString()
+        binding.tvSchool.text = education?: R.string.covenant_university.toString()
+
+
+
     }
 }
