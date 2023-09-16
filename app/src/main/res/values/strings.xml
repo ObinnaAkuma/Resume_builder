@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Resume Builder</string>
+    <string name="personal_bio_note">I am an Android developer, passionate about the development process from start to finish of Android Applications while maintaining best UI/UX and Clean code practices.</string>
+    <string name="github_username">https://github.com/ObinnaAkuma</string>
+    <string name="obinna_akuma">Obinna Akuma</string>
+    <string name="personal_bio">Personal Bio</string>
+    <string name="skills">Skills</string>
+    <string name="android">Android</string>
+    <string name="xml">XML</string>
+    <string name="navigation">Navigation</string>
+    <string name="version_control">Version Control</string>
+    <string name="education_certificate">Education / Certificate</string>
+    <string name="covenant_university">Covenant University</string>
+    <string name="gads_2023">GADS 2023</string>
+    <string name="edit_button">edit_button</string>
+    <string name="obinna_a">Obinna.A -</string>
+    <string name="school_certificate">School/Certificate</string>
+    <string name="view_cv">View CV</string>
+    <string name="name">Name</string>
+    <string name="slack_name">Slack Name</string>
+    <string name="github_handle">GitHub Handle</string>
+    <string name="personal">Personal</string>
+    <string name="personal_note">Personal note</string>
+</resources>
